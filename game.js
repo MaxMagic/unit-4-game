@@ -27,7 +27,7 @@ Anakin - 250HP Power: 25 - 50
 Vader - 285HP Power: 30 - 60
 Luke - 225HP Power: 20 - 40
 Obi-Wan - 230HP Power: 20 - 40
-Yoda - 300HP Power: 35 - 70
+Yoda - 290HP Power: 35 - 70
 Emperor - 300HP Power: 35 - 70
 Grievous - 190HP Power: 15 - 30
 Mace - 270HP Power: 28 - 56
@@ -37,7 +37,7 @@ Solo - 150HP Power: 8 - 16
 Leia - 190HP Power: 15 - 30
 Padme - 120HP Power: 5 - 10
 Jar-Jar - 100HP Power: 2 - 100
-Qui-Gonn - 225HP Power: 18-36
+Qui-Gon - 225HP Power: 18-36
 
 
 Functions:
