@@ -153,3 +153,16 @@ var qui_gon = {
     char_left: "assets/images/Characters-Left/qui-gon.png",
     char_right: "assets/images/Characters-Right/qui-gon.png"
 }
+
+// Functions:
+
+// Start Game - sets up field of play, displays characters, their HP and a background
+// Play Game - Lets player choose character and ememy. Ease char onto playing field
+// Fight Game - Attack button functionality, movement of characters in response to attack button 
+// and random selection of attack power. 
+// End Game - If HP after attack <= 0, char dies.
+
+$(document).ready(function () {
+    $("#planets").pan({fps: 25, speed: 2, dir: "left"});
+    $("background").pan({fps: 5, speed: 2, dir: "left"});
+});
