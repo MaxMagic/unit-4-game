@@ -1,4 +1,3 @@
-/* font-family: 'Star Jedi', arial; */
 #stage {
     top: 0;
     left: 0;
@@ -44,4 +43,42 @@ body, html {
     width: 100%;
     zoom: 2;
 
+ }
+
+#heading,
+#stats,
+#characterModels,
+#players,
+#attackButton,
+#newgameButton {
+    z-index: 2000;
+    color: gold;
+}
+
+ #heading {
+    
+ }
+
+ #stats {
+
+ }
+
+ #characterModels {
+
+ }
+
+ #players {
+
+ }
+
+ #attackButton {
+
+ }
+
+ #newgameButton {
+
+ }
+
+ div {
+    font-family: 'Star Jedi', arial;
  }
