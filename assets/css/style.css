@@ -128,4 +128,13 @@ body, html {
      bottom: -160px;
      z-index: 3000;
  }
+
+ #boba_image_l,
+ #boba_image_r,
+ #luke_image_l,
+ #luke_image_r {
+     position: absolute;
+     bottom: -140px;
+ }
+ 
  
