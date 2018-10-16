@@ -32,14 +32,13 @@
 }
 
 #x_wing {
-   background: url("../images/Backgrounds/x_wing_image3-01.png") 0 0 repeat-x;
+   background: url("../images/Backgrounds/x_wing_image6-01.png");
    z-index: 2000;
    position: absolute;
-   top: 150px;
-   background-repeat: no-repeat; 
-   background-size: 800px 200px;
+   top: 200px;
+   background-repeat: repeat-x; 
+   background-size: 2000px 200px;
    width: 100%;
-   left: 0;
 
 }
 
