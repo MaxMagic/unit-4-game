@@ -56,7 +56,7 @@ body, html {
 }
 
  #heading {
-    
+
  }
 
  #stats {
@@ -72,11 +72,29 @@ body, html {
  }
 
  #attackButton {
-
+    
  }
 
  #newgameButton {
 
+ }
+
+ #bottomRow {
+    position: absolute;
+    bottom: 20px;
+ }
+
+ #buttonArea {
+     width: 100%;
+ }
+
+ .playerBox {
+    height: 40px;
+    width: 40px;
+ }
+ .playerBox img {
+    height: 40px;
+    width: 40px;
  }
 
  div {
