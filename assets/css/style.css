@@ -90,6 +90,11 @@ body, html {
  #newgameButton {
     height: 50%;
  }
+ #cModels {
+    height: 400px;
+    width: 100%;
+    z-index: 3000;
+ }
 
  #bottomRow {
     position: absolute;
@@ -106,6 +111,21 @@ body, html {
     width: 60px;
  }
 
+ .playerBox:hover {
+     outline: 1px solid gold;
+ }
+
  div {
     font-family: 'Star Jedi', arial;
  }
+
+ .image_file_l,
+ .image_file_r {
+     display: none;
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     bottom: -160px;
+     z-index: 3000;
+ }
+ 

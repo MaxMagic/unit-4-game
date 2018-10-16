@@ -166,4 +166,110 @@ $(document).ready(function () {
     $("#planets").pan({fps: 25, speed: 2, dir: "left"});
     $("#x_wing").pan({fps: 80, speed: 2, dir: "right"});
     $("background").pan({fps: 5, speed: 2, dir: "left"});
+
+    $('#anakin-l').click(function(){
+        $(".image_file_l").hide();
+        $('#anakin_image_l').show();
+    });
+    $('#boba-l').click(function(){
+        $(".image_file_l").hide();
+        $('#boba_image_l').show();
+    });
+    $('#chewie-l').click(function(){
+        $(".image_file_l").hide();
+        $('#chewie_image_l').show();
+    });
+    $('#emperor-l').click(function(){
+        $(".image_file_l").hide();
+        $('#emperor_image_l').show();
+    });
+    $('#solo-l').click(function(){
+        $(".image_file_l").hide();
+        $('#solo_image_l').show();
+    });
+    $('#jar-jar-l').click(function(){
+        $(".image_file_l").hide();
+        $('#jar-jar_image_l').show();
+    });
+    $('#leia-l').click(function(){
+        $(".image_file_l").hide();
+        $('#leia_image_l').show();
+    });
+    $('#luke-l').click(function(){
+        $(".image_file_l").hide();
+        $('#luke_image_l').show();
+    });
+    $('#vader-l').click(function(){
+        $(".image_file_l").hide();
+        $('#vader_image_l').show();
+    });
+    $('#obi-wan-l').click(function(){
+        $(".image_file_l").hide();
+        $('#obi-wan_image_l').show();
+    });
+    $('#yoda-l').click(function(){
+        $(".image_file_l").hide();
+        $('#yoda_image_l').show();
+    });
+    $('#mace-l').click(function(){
+        $(".image_file_l").hide();
+        $('#mace_image_l').show();
+    });
+
+
+    $('#anakin-r').click(function(){
+        $(".image_file_r").hide();
+        $('#anakin_image_r').show();
+    });
+    $('#boba-r').click(function(){
+        $(".image_file_r").hide();
+        $('#boba_image_r').show();
+    });
+    $('#chewie-r').click(function(){
+        $(".image_file_r").hide();
+        $('#chewie_image_r').show();
+    });
+    $('#emperor-r').click(function(){
+        $(".image_file_r").hide();
+        $('#emperor_image_r').show();
+    });
+    $('#solo-r').click(function(){
+        $(".image_file_r").hide();
+        $('#solo_image_r').show();
+    });
+    $('#jar-jar-r').click(function(){
+        $(".image_file_r").hide();
+        $('#jar-jar_image_r').show();
+    });
+    $('#leia-r').click(function(){
+        $(".image_file_r").hide();
+        $('#leia_image_r').show();
+    });
+    $('#luke-r').click(function(){
+        $(".image_file_r").hide();
+        $('#luke_image_r').show();
+    });
+    $('#vader-r').click(function(){
+        $(".image_file_r").hide();
+        $('#vader_image_r').show();
+    });
+    $('#obi-wan-r').click(function(){
+        $(".image_file_r").hide();
+        $('#obi-wan_image_r').show();
+    });
+    $('#yoda-r').click(function(){
+        $(".image_file_r").hide();
+        $('#yoda_image_r').show();
+    });
+    $('#mace-r').click(function(){
+        $(".image_file_r").hide();
+        $('#mace_image_r').show();
+    });
+
+    $("#btn1").click(function(){
+        $("#box").animate({height: "300px"});
+    });
+    $("#btn2").click(function(){
+        $("#box").animate({height: "100px"});
+    });
 });
