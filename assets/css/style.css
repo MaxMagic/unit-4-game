@@ -31,6 +31,19 @@
 
 }
 
+#x_wing {
+   background: url("../images/Backgrounds/x_wing_image3-01.png") 0 0 repeat-x;
+   z-index: 2000;
+   position: absolute;
+   top: 150px;
+   background-repeat: no-repeat; 
+   background-size: 800px 200px;
+   width: 100%;
+   left: 0;
+
+}
+
+
 body, html {
     height: 100%;
 }
@@ -60,7 +73,7 @@ body, html {
  }
 
  #stats {
-
+    white-space: pre;
  }
 
  #characterModels {
@@ -72,29 +85,26 @@ body, html {
  }
 
  #attackButton {
-    
+    height: 50%;
  }
 
  #newgameButton {
-
+    height: 50%;
  }
 
  #bottomRow {
     position: absolute;
     bottom: 20px;
- }
-
- #buttonArea {
-     width: 100%;
+    left: 0;
  }
 
  .playerBox {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
  }
  .playerBox img {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
  }
 
  div {

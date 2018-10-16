@@ -164,5 +164,6 @@ var qui_gon = {
 
 $(document).ready(function () {
     $("#planets").pan({fps: 25, speed: 2, dir: "left"});
+    $("#x_wing").pan({fps: 80, speed: 2, dir: "right"});
     $("background").pan({fps: 5, speed: 2, dir: "left"});
 });
