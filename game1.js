@@ -48,49 +48,84 @@ var playerChar;
 var cpuChar; 
 
 function player1(clicked_id){
-    console.log(clicked_id);
     switch (clicked_id){
         case "anakin-l":
             playerChar = anakin;
-            console.log(playerChar);
-            break;
+            return playerChar;
         case "boba-l":
             playerChar = boba;
-            break;
+            return playerChar;
         case "chewie-l":
             playerChar = chewie;
-            break;
+            return playerChar;
         case "emperor-l":
             playerChar = emperor;
-            break;
+            return playerChar;
         case "solo-l":
             playerChar = solo;
-            break;
+            return playerChar;
         case "jar-jar-l":
             playerChar = jar_jar;
-            break;
+            return playerChar;
         case "leia-l":
             playerChar = leia;
-            break;
+            return playerChar;
         case "luke-l":
             playerChar = luke;
-            break;
+            return playerChar;
         case "vader-l":
             playerChar = vader;
-            break;
+            return playerChar;
         case "obi-wan-l":
             playerChar = obi_wan;
-            break;
+            return playerChar;
         case "yoda-l":
             playerChar = yoda;
-            break;
+            return playerChar;
         case "mace-l":
             playerChar = mace;
-            break;
-    }
-    playerChar = clicked_id;
-    console.log(playerChar);
-};
+            return playerChar;
+    }}
+function player2(clicked_id){
+    switch (clicked_id){
+        case "anakin-r":
+            cpuChar = anakin;
+            return cpuChar;
+        case "boba-r":
+            cpuChar = boba;
+            return cpuChar;
+        case "chewie-r":
+            cpuChar = chewie;
+            return cpuChar;
+        case "emperor-r":
+            cpuChar = emperor;
+            return cpuChar;
+        case "solo-r":
+            cpuChar = solo;
+            return cpuChar;
+        case "jar-jar-r":
+            cpuChar = jar_jar;
+            return cpuChar;
+        case "leia-r":
+            cpuChar = leia;
+            return cpuChar;
+        case "luke-r":
+            cpuChar = luke;
+            return cpuChar;
+        case "vader-r":
+            cpuChar = vader;
+            return cpuChar;
+        case "obi-wan-r":
+            cpuChar = obi_wan;
+            return cpuChar;
+        case "yoda-r":
+            cpuChar = yoda;
+            return cpuChar;
+        case "mace-r":
+            cpuChar = mace;
+            return cpuChar;
+    }};
+
 
 var anakin = {
     name: "Anakin Skywalker",
@@ -213,15 +248,7 @@ var qui_gon = {
     char_right: "assets/images/Characters-Right/qui-gon.png"
 }
 
-$(document).ready(function () {
-    
-    // var playerChar;
-    // var cpuChar;
-    // function reply_click(clicked_id){
-    //     console.log(clicked_id);
-    //     playerChar = clicked_id;
-    //     console.log(playerChar);
-    // };  
+$(document).ready(function () { 
 
     $("#planets").pan({fps: 25, speed: 2, dir: "left"});
     $("#x_wing").pan({fps: 80, speed: 2, dir: "right"});
@@ -395,33 +422,10 @@ $(document).ready(function () {
 
 // Start Game - sets up field of play, displays characters, their HP and a background
 
-function leftplayerSelect() {
-    playerChar = $(this).attr("id");
-    console.log(playerChar);
-}
-// function leftplayerSelect() {
-//     var playerChar = this.id;
-//     console.log(playerChar);
-//     return playerChar;
-// }
-
-function rightplayerSelect() {
-    var cpuChar = $(this).id;
-    console.log(cpuChar)
-    return cpuChar;
-}
-
 $("#attackButton").on('click', function(){
     $("#" + playerChar).addClass('attackLeft');
     $("#" + cpuChar).addClass('attackRight');
 });
-
-{/* <button id="1" >B1</button>
-<button id="2" onClick="reply_click(this.id)">B2</button>
-<button id="3" onClick="reply_click(this.id)">B3</button> */}
-
-
-
 
 // Play Game - Lets player choose character and ememy. Ease char onto playing field
 
