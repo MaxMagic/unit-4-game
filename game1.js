@@ -44,6 +44,54 @@ Fight Game - Attack button functionality, movement of characters in response to 
 and random selection of attack power. 
 End Game - If HP after attack <= 0, char dies. */
 
+var playerChar;
+var cpuChar; 
+
+function player1(clicked_id){
+    console.log(clicked_id);
+    switch (clicked_id){
+        case "anakin-l":
+            playerChar = anakin;
+            console.log(playerChar);
+            break;
+        case "boba-l":
+            playerChar = boba;
+            break;
+        case "chewie-l":
+            playerChar = chewie;
+            break;
+        case "emperor-l":
+            playerChar = emperor;
+            break;
+        case "solo-l":
+            playerChar = solo;
+            break;
+        case "jar-jar-l":
+            playerChar = jar_jar;
+            break;
+        case "leia-l":
+            playerChar = leia;
+            break;
+        case "luke-l":
+            playerChar = luke;
+            break;
+        case "vader-l":
+            playerChar = vader;
+            break;
+        case "obi-wan-l":
+            playerChar = obi_wan;
+            break;
+        case "yoda-l":
+            playerChar = yoda;
+            break;
+        case "mace-l":
+            playerChar = mace;
+            break;
+    }
+    playerChar = clicked_id;
+    console.log(playerChar);
+};
+
 var anakin = {
     name: "Anakin Skywalker",
     left_hp: 250,
@@ -165,27 +213,25 @@ var qui_gon = {
     char_right: "assets/images/Characters-Right/qui-gon.png"
 }
 
-// Functions:
-
-// Start Game - sets up field of play, displays characters, their HP and a background
-// Play Game - Lets player choose character and ememy. Ease char onto playing field
-// Fight Game - Attack button functionality, movement of characters in response to attack button 
-// and random selection of attack power. 
-// End Game - If HP after attack <= 0, char dies.
-
 $(document).ready(function () {
+    
+    // var playerChar;
+    // var cpuChar;
+    // function reply_click(clicked_id){
+    //     console.log(clicked_id);
+    //     playerChar = clicked_id;
+    //     console.log(playerChar);
+    // };  
+
     $("#planets").pan({fps: 25, speed: 2, dir: "left"});
     $("#x_wing").pan({fps: 80, speed: 2, dir: "right"});
     $("background").pan({fps: 5, speed: 2, dir: "left"});
-
-    console.log(anakin.name);
 
     $('#anakin-l').click(function(){
         $(".image_file_l").hide();
         $('#anakin_image_l').show();
         $("#anakin_stats_l").text(anakin.name + " " + anakin.left_hp + "HP");
-        $("#anakin_stats_l").show(); 
-         
+        $("#anakin_stats_l").show();      
     });
     $('#boba-l').click(function(){
         $(".image_file_l").hide();
@@ -253,8 +299,6 @@ $(document).ready(function () {
         $("#mace_stats_l").text(mace.name + " " + mace.left_hp + "HP");
         $("#mace_stats_l").show();
     });
-
-
     $('#anakin-r').click(function(){
         $(".image_file_r").hide();
         $('#anakin_image_r').show();
@@ -327,6 +371,17 @@ $(document).ready(function () {
         $("#mace_stats_r").text(mace.name + " " + mace.right_hp + "HP");
         $("#mace_stats_r").show();
     });
+    
+
+    // $("#attackButton").click(function(){
+    //     $("#anakin_image_l").animate({left: "+=250px"}, "fast", function(){
+    //         $("#anakin_image_l").animate({right: "0px"}, "fast");
+    //     });
+
+    // $("#attackButton").on('click', function(){
+    //     $("#anakin_image_l").addClass('attackLeft');
+    // });
+    
 
     $("#btn1").click(function(){
         $("#box").animate({height: "300px"});
@@ -335,3 +390,42 @@ $(document).ready(function () {
         $("#box").animate({height: "100px"});
     });
 });
+
+// Functions:
+
+// Start Game - sets up field of play, displays characters, their HP and a background
+
+function leftplayerSelect() {
+    playerChar = $(this).attr("id");
+    console.log(playerChar);
+}
+// function leftplayerSelect() {
+//     var playerChar = this.id;
+//     console.log(playerChar);
+//     return playerChar;
+// }
+
+function rightplayerSelect() {
+    var cpuChar = $(this).id;
+    console.log(cpuChar)
+    return cpuChar;
+}
+
+$("#attackButton").on('click', function(){
+    $("#" + playerChar).addClass('attackLeft');
+    $("#" + cpuChar).addClass('attackRight');
+});
+
+{/* <button id="1" >B1</button>
+<button id="2" onClick="reply_click(this.id)">B2</button>
+<button id="3" onClick="reply_click(this.id)">B3</button> */}
+
+
+
+
+// Play Game - Lets player choose character and ememy. Ease char onto playing field
+
+
+// Fight Game - Attack button functionality, movement of characters in response to attack button 
+// and random selection of attack power. 
+// End Game - If HP after attack <= 0, char dies.

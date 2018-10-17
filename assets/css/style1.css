@@ -7,6 +7,18 @@
     src: url("fonts/Death Star.otf");
 }
 
+@keyframes attackLeft {
+    0%   {right: 0px;}
+    50%  {right: 250px;}
+    100% {right: 0px;}
+}
+
+@keyframes attackRight {
+    0%   {left: 0px;}
+    50%  {left: 250px;}
+    100% {left: 0px;}
+}
+
 #stage {
     top: 0;
     left: 0;
@@ -105,10 +117,12 @@ body, html {
 
  #attackButton {
     height: 50%;
+    z-index: 4000;
  }
 
  #newgameButton {
     height: 50%;
+    z-index: 4000;
  }
  #cModels {
     height: 400px;
@@ -160,3 +174,4 @@ body, html {
      position: absolute;
      bottom: -140px;
  }
+
