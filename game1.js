@@ -50,81 +50,96 @@ var cpuChar;
 function player1(clicked_id){
     switch (clicked_id){
         case "anakin-l":
-            playerChar = anakin;
+            var playerChar = anakin;
+            console.log(clicked_id);
+            console.log(playerChar);
             return playerChar;
         case "boba-l":
-            playerChar = boba;
+            var playerChar = boba;
             return playerChar;
         case "chewie-l":
-            playerChar = chewie;
+            var playerChar = chewie;
             return playerChar;
         case "emperor-l":
-            playerChar = emperor;
+            var playerChar = emperor;
             return playerChar;
         case "solo-l":
-            playerChar = solo;
+            var playerChar = solo;
             return playerChar;
         case "jar-jar-l":
-            playerChar = jar_jar;
+            var playerChar = jar_jar;
             return playerChar;
         case "leia-l":
-            playerChar = leia;
+            var playerChar = leia;
             return playerChar;
         case "luke-l":
-            playerChar = luke;
+            var playerChar = luke;
             return playerChar;
         case "vader-l":
-            playerChar = vader;
+            var playerChar = vader;
             return playerChar;
         case "obi-wan-l":
-            playerChar = obi_wan;
+            var playerChar = obi_wan;
             return playerChar;
         case "yoda-l":
-            playerChar = yoda;
+            var playerChar = yoda;
             return playerChar;
         case "mace-l":
-            playerChar = mace;
+            var playerChar = mace;
             return playerChar;
-    }}
+    }};
 function player2(clicked_id){
     switch (clicked_id){
         case "anakin-r":
-            cpuChar = anakin;
+            var cpuChar = anakin;
             return cpuChar;
         case "boba-r":
-            cpuChar = boba;
+            var cpuChar = boba;
             return cpuChar;
         case "chewie-r":
-            cpuChar = chewie;
+            var cpuChar = chewie;
             return cpuChar;
         case "emperor-r":
-            cpuChar = emperor;
+            var cpuChar = emperor;
             return cpuChar;
         case "solo-r":
-            cpuChar = solo;
+            var cpuChar = solo;
             return cpuChar;
         case "jar-jar-r":
-            cpuChar = jar_jar;
+            var cpuChar = jar_jar;
             return cpuChar;
         case "leia-r":
-            cpuChar = leia;
+            var cpuChar = leia;
             return cpuChar;
         case "luke-r":
-            cpuChar = luke;
+            var cpuChar = luke;
             return cpuChar;
         case "vader-r":
-            cpuChar = vader;
+            var cpuChar = vader;
             return cpuChar;
         case "obi-wan-r":
-            cpuChar = obi_wan;
+            var cpuChar = obi_wan;
             return cpuChar;
         case "yoda-r":
-            cpuChar = yoda;
+            var cpuChar = yoda;
             return cpuChar;
         case "mace-r":
-            cpuChar = mace;
+            var cpuChar = mace;
             return cpuChar;
     }};
+
+// function attackGame(clicked_id1, clicked_id2, playerChar){
+//     console.log(clicked_id1);
+//     // player1(clicked_id);
+//     // player2(clicked_id);
+//     console.log(playerChar);
+//     console.log(cpuChar);
+//     console.log("Old HP: ", playerChar.left_hp());
+//     //Animate section
+//     //HP Decrease Section
+//     playerChar.left_hp() = playerChar.left_hp - cpuChar.attack_power();
+//     console.log("New HP: ", playerChar.left_hp());      
+// };
 
 
 var anakin = {
@@ -258,7 +273,10 @@ $(document).ready(function () {
         $(".image_file_l").hide();
         $('#anakin_image_l').show();
         $("#anakin_stats_l").text(anakin.name + " " + anakin.left_hp + "HP");
-        $("#anakin_stats_l").show();      
+        $("#anakin_stats_l").show(); 
+        var playerChar = anakin;
+        console.log(playerChar);
+        return playerChar;     
     });
     $('#boba-l').click(function(){
         $(".image_file_l").hide();
@@ -331,6 +349,8 @@ $(document).ready(function () {
         $('#anakin_image_r').show();
         $("#anakin_stats_r").text(anakin.name + " " + anakin.right_hp + "HP");
         $("#anakin_stats_r").show();
+        var cpuChar = anakin;
+        return cpuChar;
     });
     $('#boba-r').click(function(){
         $(".image_file_r").hide();
@@ -399,6 +419,7 @@ $(document).ready(function () {
         $("#mace_stats_r").show();
     });
     
+    
 
     // $("#attackButton").click(function(){
     //     $("#anakin_image_l").animate({left: "+=250px"}, "fast", function(){
@@ -422,12 +443,22 @@ $(document).ready(function () {
 
 // Start Game - sets up field of play, displays characters, their HP and a background
 
-$("#attackButton").on('click', function(){
-    $("#" + playerChar).addClass('attackLeft');
-    $("#" + cpuChar).addClass('attackRight');
-});
+// $("#attackButton").on('click', function(){
+//     $("#" + playerChar).addClass('attackLeft');
+//     $("#" + cpuChar).addClass('attackRight');
+// });
 
 // Play Game - Lets player choose character and ememy. Ease char onto playing field
+/* Take player 1 and player 2 and perform calculation then show updated results*/
+function playGame(){
+    $("#anakin-l").click(function(){
+        var playerChar = anakin;
+        console.log(clicked_id);
+        console.log(playerChar);
+        return playerChar;
+    })
+}
+
 
 
 // Fight Game - Attack button functionality, movement of characters in response to attack button 
