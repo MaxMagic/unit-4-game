@@ -48,6 +48,7 @@ var playerChar;
 var cpuChar; 
 var enemyCount = 0;
 
+
 // function player1(clicked_id){
 //     switch (clicked_id){
 //         case "anakin-l":
@@ -159,9 +160,10 @@ $("#attackButton").on("click", function(){
     else {
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
-        $("#anakin_stats_l").text(playerChar.name + " " + playerChar.left_hp + "HP");
-        $("#anakin_stats_l").show();
-        $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        console.log(playerChar.stat_id_left);
+        $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
+        $(playerChar.stat_id_left).show();
+        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
         $("#anakin_stats_r").show();
         var message1 = $("<p><p>").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
@@ -175,13 +177,16 @@ function checkGame(playerChar, cpuChar){
     if (playerChar.left_hp <= 0){
         $(".image_file_l").hide();
         $("#fight_message").text("You Lose!");
-        return;
     }
     if (cpuChar.right_hp <= 0 && enemyCount < 4){
         enemyCount++;
+        console.log(Math.floor(Math.random() * 12));
+        console.log(enemyCount);
+        var keys = (Object.keys(characters));
         $(".image_file_r").hide();
-        cpuChar = characters[Math.floor(Math.random() * characters.length)];
-        $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.left_hp + "HP");
+        cpuChar = characters[keys[Math.floor(Math.random() * 12)]];
+        console.log(cpuChar);
+        $("#" + cpuChar.stat_id_rightx).text(cpuChar.name + " " + cpuChar.left_hp + "HP");
         $("#anakin_stats_r").show();
     } 
 }
@@ -194,7 +199,9 @@ var anakin = {
     attack_power: Math.floor(Math.random() * (50 - 25 + 1)) + 25,
     counter_attack: 25,
     char_left: "assets/images/Characters-Left/anakin.png",
-    char_right: "assets/images/Characters-Right/anakin.png"
+    char_right: "assets/images/Characters-Right/anakin.png",
+    stat_id_right: "anakin_stats_r",
+    stat_id_left: "anakin_stats_l"
 }
 var vader = {
     name: "Darth Vader",
@@ -203,7 +210,9 @@ var vader = {
     attack_power: Math.floor(Math.random() * (60 - 30 + 1)) + 30,
     counter_attack: 30,
     char_left: "assets/images/Characters-Left/vader.png",
-    char_right: "assets/images/Characters-Right/vader.png"
+    char_right: "assets/images/Characters-Right/vader.png",
+    stat_id_right: "vader_stats_r",
+    stat_id_left: "vader_stats_l"
 }
 var luke = {
     name: "Luke Skywalker",
@@ -212,7 +221,9 @@ var luke = {
     attack_power: Math.floor(Math.random() * (40 - 20 + 1)) + 20,
     counter_attack: 20,
     char_left: "assets/images/Characters-Left/luke.png",
-    char_right: "assets/images/Characters-Right/luke.png"
+    char_right: "assets/images/Characters-Right/luke.png",
+    stat_id_right: "luke_stats_r",
+    stat_id_left: "luke_stats_l"
 }
 var obi_wan = {
     name: "Obi-Wan Kenobi",
@@ -221,7 +232,9 @@ var obi_wan = {
     attack_power: Math.floor(Math.random() * (40 - 20 + 1)) + 20,
     counter_attack: 20,
     char_left: "assets/images/Characters-Left/obi-wan.png",
-    char_right: "assets/images/Characters-Right/obi-wan.png"
+    char_right: "assets/images/Characters-Right/obi-wan.png",
+    stat_id_right: "obi-wan_stats_r",
+    stat_id_left: "obi-wan_stats_l"
 }
 var yoda = {
     name: "Yoda",
@@ -230,7 +243,9 @@ var yoda = {
     attack_power: Math.floor(Math.random() * (70 - 35 + 1)) + 35,
     counter_attack: 35,
     char_left: "assets/images/Characters-Left/yoda.png",
-    char_right: "assets/images/Characters-Right/yoda.png"
+    char_right: "assets/images/Characters-Right/yoda.png",
+    stat_id_right: "yoda_stats_r",
+    stat_id_left: "yoda_stats_l"
 }
 var emperor = {
     name: "The Emperor",
@@ -239,7 +254,9 @@ var emperor = {
     attack_power: Math.floor(Math.random() * (70 - 35 + 1)) + 35,
     counter_attack: 35,
     char_left: "assets/images/Characters-Left/emperor.png",
-    char_right: "assets/images/Characters-Right/emperor.png"
+    char_right: "assets/images/Characters-Right/emperor.png",
+    stat_id_right: "emperor_stats_r",
+    stat_id_left: "emperor_stats_l"
 }
 var grievous = {
     name: "General Grievous",
@@ -248,7 +265,9 @@ var grievous = {
     attack_power: Math.floor(Math.random() * (30 - 15 + 1)) + 15,
     counter_attack: 15,
     char_left: "assets/images/Characters-Left/grievous.png",
-    char_right: "assets/images/Characters-Right/grievous.png"
+    char_right: "assets/images/Characters-Right/grievous.png",
+    stat_id_right: "grievous_stats_r",
+    stat_id_left: "grievous_stats_l"
 }
 var mace = {
     name: "Mace Windu",
@@ -257,7 +276,9 @@ var mace = {
     attack_power: Math.floor(Math.random() * (56 - 28 + 1)) + 28,
     counter_attack: 28,
     char_left: "assets/images/Characters-Left/mace.png",
-    char_right: "assets/images/Characters-Right/mace.png"
+    char_right: "assets/images/Characters-Right/mace.png",
+    stat_id_right: "mace_stats_r",
+    stat_id_left: "mace_stats_l"
 }
 var boba = {
     name: "Boba Fett",
@@ -266,7 +287,9 @@ var boba = {
     attack_power: Math.floor(Math.random() * (20 - 10 + 1)) + 10,
     counter_attack: 10,
     char_left: "assets/images/Characters-Left/boba.png",
-    char_right: "assets/images/Characters-Right/boba.png"
+    char_right: "assets/images/Characters-Right/boba.png",
+    stat_id_right: "boba_stats_r",
+    stat_id_left: "boba_stats_l"
 }
 var chewie = {
     name: "Chewbacca",
@@ -275,7 +298,9 @@ var chewie = {
     attack_power: Math.floor(Math.random() * (20 - 10 + 1)) + 10,
     counter_attack: 10,
     char_left: "assets/images/Characters-Left/chewie.png",
-    char_right: "assets/images/Characters-Right/chewie.png"
+    char_right: "assets/images/Characters-Right/chewie.png",
+    stat_id_right: "chewie_stats_r",
+    stat_id_left: "chewie_stats_l"
 }
 var solo = {
     name: "Han Solo",
@@ -284,7 +309,9 @@ var solo = {
     attack_power: Math.floor(Math.random() * (16 - 8 + 1)) + 8,
     counter_attack: 8,
     char_left: "assets/images/Characters-Left/solo.png",
-    char_right: "assets/images/Characters-Right/solo.png"
+    char_right: "assets/images/Characters-Right/solo.png",
+    stat_id_right: "solo_stats_r",
+    stat_id_left: "solo_stats_l"
 }
 var leia = {
     name: "Princess Leia",
@@ -293,7 +320,9 @@ var leia = {
     attack_power: Math.floor(Math.random() * (30 - 15 + 1)) + 15,
     counter_attack: 15,
     char_left: "assets/images/Characters-Left/leia.png",
-    char_right: "assets/images/Characters-Right/leia.png"
+    char_right: "assets/images/Characters-Right/leia.png",
+    stat_id_right: "leia_stats_r",
+    stat_id_left: "leia_stats_l"
 }
 var padme = {
     name: "Padme",
@@ -302,7 +331,9 @@ var padme = {
     attack_power: Math.floor(Math.random() * (10 - 5 + 1)) + 5,
     counter_attack: 5,
     char_left: "assets/images/Characters-Left/padme.png",
-    char_right: "assets/images/Characters-Right/padme.png"
+    char_right: "assets/images/Characters-Right/padme.png",
+    stat_id_right: "padme_stats_r",
+    stat_id_left: "padme_stats_l"
 }
 var jar_jar = {
     name: "Jar-Jar Binks",
@@ -311,7 +342,9 @@ var jar_jar = {
     attack_power: Math.floor(Math.random() * (100 - 2 + 1)) + 2,
     counter_attack: Math.floor(Math.random() * (100 - 2 + 1)) + 2,
     char_left: "assets/images/Characters-Left/jar-jar.png",
-    char_right: "assets/images/Characters-Right/jar.jar.png"
+    char_right: "assets/images/Characters-Right/jar.jar.png",
+    stat_id_right: "jar-jar_stats_r",
+    stat_id_left: "jar-jar_stats_l"
 }
 var qui_gon = {
     name: "Qui-Gon Jinn",
@@ -320,7 +353,9 @@ var qui_gon = {
     attack_power: Math.floor(Math.random() * (36 - 18 + 1)) + 18,
     counter_attack: 18,
     char_left: "assets/images/Characters-Left/qui-gon.png",
-    char_right: "assets/images/Characters-Right/qui-gon.png"
+    char_right: "assets/images/Characters-Right/qui-gon.png",
+    stat_id_right: "qui-gon_stats_r",
+    stat_id_left: "qui-gon_stats_l"
 }
 var characters = {
     anakinl:anakin,
