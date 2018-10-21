@@ -46,100 +46,145 @@ End Game - If HP after attack <= 0, char dies. */
 
 var playerChar;
 var cpuChar; 
+var enemyCount = 0;
+
+// function player1(clicked_id){
+//     switch (clicked_id){
+//         case "anakin-l":
+//             var playerChar = anakin;
+//             console.log(clicked_id);
+//             console.log(playerChar);
+//             break;
+//         case "boba-l":
+//             var playerChar = boba;
+//             break;
+//         case "chewie-l":
+//             var playerChar = chewie;
+//             break;
+//         case "emperor-l":
+//             var playerChar = emperor;
+//             break;
+//         case "solo-l":
+//             var playerChar = solo;
+//             break;
+//         case "jar-jar-l":
+//             var playerChar = jar_jar;
+//             break;
+//         case "leia-l":
+//             var playerChar = leia;
+//             break;
+//         case "luke-l":
+//             var playerChar = luke;
+//             break;
+//         case "vader-l":
+//             var playerChar = vader;
+//             break;
+//         case "obi-wan-l":
+//             var playerChar = obi_wan;
+//             break;
+//         case "yoda-l":
+//             var playerChar = yoda;
+//             break;
+//         case "mace-l":
+//             var playerChar = mace;
+//             break;
+//     }};
+// function player2(clicked_id){
+//     switch (clicked_id){
+//         case "anakin-r":
+//             var cpuChar = anakin;
+//             break;
+//         case "boba-r":
+//             var cpuChar = boba;
+//             break;
+//         case "chewie-r":
+//             var cpuChar = chewie;
+//             break;
+//         case "emperor-r":
+//             var cpuChar = emperor;
+//             break;
+//         case "solo-r":
+//             var cpuChar = solo;
+//             break;
+//         case "jar-jar-r":
+//             var cpuChar = jar_jar;
+//             break;
+//         case "leia-r":
+//             var cpuChar = leia;
+//             break;
+//         case "luke-r":
+//             var cpuChar = luke;
+//             break;
+//         case "vader-r":
+//             var cpuChar = vader;
+//             break;
+//         case "obi-wan-r":
+//             var cpuChar = obi_wan;
+//             break;
+//         case "yoda-r":
+//             var cpuChar = yoda;
+//             break;
+//         case "mace-r":
+//             var cpuChar = mace;
+//             break;
+//     }};
 
 function player1(clicked_id){
-    switch (clicked_id){
-        case "anakin-l":
-            var playerChar = anakin;
-            console.log(clicked_id);
-            console.log(playerChar);
-            return playerChar;
-        case "boba-l":
-            var playerChar = boba;
-            return playerChar;
-        case "chewie-l":
-            var playerChar = chewie;
-            return playerChar;
-        case "emperor-l":
-            var playerChar = emperor;
-            return playerChar;
-        case "solo-l":
-            var playerChar = solo;
-            return playerChar;
-        case "jar-jar-l":
-            var playerChar = jar_jar;
-            return playerChar;
-        case "leia-l":
-            var playerChar = leia;
-            return playerChar;
-        case "luke-l":
-            var playerChar = luke;
-            return playerChar;
-        case "vader-l":
-            var playerChar = vader;
-            return playerChar;
-        case "obi-wan-l":
-            var playerChar = obi_wan;
-            return playerChar;
-        case "yoda-l":
-            var playerChar = yoda;
-            return playerChar;
-        case "mace-l":
-            var playerChar = mace;
-            return playerChar;
-    }};
-function player2(clicked_id){
-    switch (clicked_id){
-        case "anakin-r":
-            var cpuChar = anakin;
-            return cpuChar;
-        case "boba-r":
-            var cpuChar = boba;
-            return cpuChar;
-        case "chewie-r":
-            var cpuChar = chewie;
-            return cpuChar;
-        case "emperor-r":
-            var cpuChar = emperor;
-            return cpuChar;
-        case "solo-r":
-            var cpuChar = solo;
-            return cpuChar;
-        case "jar-jar-r":
-            var cpuChar = jar_jar;
-            return cpuChar;
-        case "leia-r":
-            var cpuChar = leia;
-            return cpuChar;
-        case "luke-r":
-            var cpuChar = luke;
-            return cpuChar;
-        case "vader-r":
-            var cpuChar = vader;
-            return cpuChar;
-        case "obi-wan-r":
-            var cpuChar = obi_wan;
-            return cpuChar;
-        case "yoda-r":
-            var cpuChar = yoda;
-            return cpuChar;
-        case "mace-r":
-            var cpuChar = mace;
-            return cpuChar;
-    }};
+    playerChar = characters[clicked_id];
+    console.log(playerChar);
+};
 
-// function attackGame(clicked_id1, clicked_id2, playerChar){
-//     console.log(clicked_id1);
-//     // player1(clicked_id);
-//     // player2(clicked_id);
-//     console.log(playerChar);
-//     console.log(cpuChar);
-//     console.log("Old HP: ", playerChar.left_hp());
-//     //Animate section
-//     //HP Decrease Section
-//     playerChar.left_hp() = playerChar.left_hp - cpuChar.attack_power();
-//     console.log("New HP: ", playerChar.left_hp());      
-// };
+function player2(clicked_id){
+    console.log(clicked_id);
+    console.log(characters[clicked_id]);
+    cpuChar = characters[clicked_id];
+    console.log(cpuChar);
+};
+
+$("#attackButton").on("click", function(){
+    if (playerChar === jar_jar){
+        for (var i = 0; i <= 4; i++){
+            cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
+            $("#anakin_stats_l").text(playerChar.name + " " + playerChar.left_hp + "HP");
+            $("#anakin_stats_l").show();
+            $("#fight_message").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
+            $("#fight_message").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
+            $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+            $("#anakin_stats_r").show(); 
+            playerChar.attack_power = playerChar.attack_power + playerChar.attack_power; 
+        };
+        playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
+        checkGame(playerChar, cpuChar);    
+    }
+    else {
+        cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
+        playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
+        $("#anakin_stats_l").text(playerChar.name + " " + playerChar.left_hp + "HP");
+        $("#anakin_stats_l").show();
+        $("#fight_message").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
+        $("#fight_message").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
+        $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        $("#anakin_stats_r").show();
+        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
+        checkGame(playerChar, cpuChar);
+    }
+});
+
+function checkGame(playerChar, cpuChar){
+    if (playerChar.left_hp <= 0){
+        $(".image_file_l").hide();
+        $("#fight_message").text("You Lose!");
+        return;
+    }
+    if (cpuChar.right_hp <= 0 && enemyCount < 4){
+        enemyCount++;
+        $(".image_file_r").hide();
+        cpuChar = characters[Math.floor(Math.random() * characters.length)];
+        $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.left_hp + "HP");
+        $("#anakin_stats_r").show();
+        $('#yoda_image_l').show();
+    } 
+}
 
 
 var anakin = {
@@ -147,6 +192,7 @@ var anakin = {
     left_hp: 250,
     right_hp: 250,
     attack_power: Math.floor(Math.random() * (50 - 25 + 1)) + 25,
+    counter_attack: 25,
     char_left: "assets/images/Characters-Left/anakin.png",
     char_right: "assets/images/Characters-Right/anakin.png"
 }
@@ -155,6 +201,7 @@ var vader = {
     left_hp: 285,
     right_hp: 285,
     attack_power: Math.floor(Math.random() * (60 - 30 + 1)) + 30,
+    counter_attack: 30,
     char_left: "assets/images/Characters-Left/vader.png",
     char_right: "assets/images/Characters-Right/vader.png"
 }
@@ -163,6 +210,7 @@ var luke = {
     left_hp: 225,
     right_hp: 225,
     attack_power: Math.floor(Math.random() * (40 - 20 + 1)) + 20,
+    counter_attack: 20,
     char_left: "assets/images/Characters-Left/luke.png",
     char_right: "assets/images/Characters-Right/luke.png"
 }
@@ -170,7 +218,8 @@ var obi_wan = {
     name: "Obi-Wan Kenobi",
     left_hp: 230,
     right_hp: 230,
-    attack_power: Math.floor(Math.random() * (20 - 40 + 1)) + 20,
+    attack_power: Math.floor(Math.random() * (40 - 20 + 1)) + 20,
+    counter_attack: 20,
     char_left: "assets/images/Characters-Left/obi-wan.png",
     char_right: "assets/images/Characters-Right/obi-wan.png"
 }
@@ -179,6 +228,7 @@ var yoda = {
     left_hp: 300,
     right_hp: 300,
     attack_power: Math.floor(Math.random() * (70 - 35 + 1)) + 35,
+    counter_attack: 35,
     char_left: "assets/images/Characters-Left/yoda.png",
     char_right: "assets/images/Characters-Right/yoda.png"
 }
@@ -187,6 +237,7 @@ var emperor = {
     left_hp: 300,
     right_hp: 300,
     attack_power: Math.floor(Math.random() * (70 - 35 + 1)) + 35,
+    counter_attack: 35,
     char_left: "assets/images/Characters-Left/emperor.png",
     char_right: "assets/images/Characters-Right/emperor.png"
 }
@@ -195,6 +246,7 @@ var grievous = {
     left_hp: 190,
     right_hp: 190,
     attack_power: Math.floor(Math.random() * (30 - 15 + 1)) + 15,
+    counter_attack: 15,
     char_left: "assets/images/Characters-Left/grievous.png",
     char_right: "assets/images/Characters-Right/grievous.png"
 }
@@ -203,6 +255,7 @@ var mace = {
     left_hp: 270,
     right_hp: 270,
     attack_power: Math.floor(Math.random() * (56 - 28 + 1)) + 28,
+    counter_attack: 28,
     char_left: "assets/images/Characters-Left/mace.png",
     char_right: "assets/images/Characters-Right/mace.png"
 }
@@ -211,6 +264,7 @@ var boba = {
     left_hp: 170,
     right_hp: 170,
     attack_power: Math.floor(Math.random() * (20 - 10 + 1)) + 10,
+    counter_attack: 10,
     char_left: "assets/images/Characters-Left/boba.png",
     char_right: "assets/images/Characters-Right/boba.png"
 }
@@ -219,6 +273,7 @@ var chewie = {
     left_hp: 170,
     right_hp: 170,
     attack_power: Math.floor(Math.random() * (20 - 10 + 1)) + 10,
+    counter_attack: 10,
     char_left: "assets/images/Characters-Left/chewie.png",
     char_right: "assets/images/Characters-Right/chewie.png"
 }
@@ -227,6 +282,7 @@ var solo = {
     left_hp: 150,
     right_hp: 150,
     attack_power: Math.floor(Math.random() * (16 - 8 + 1)) + 8,
+    counter_attack: 8,
     char_left: "assets/images/Characters-Left/solo.png",
     char_right: "assets/images/Characters-Right/solo.png"
 }
@@ -235,6 +291,7 @@ var leia = {
     left_hp: 190,
     right_hp: 190,
     attack_power: Math.floor(Math.random() * (30 - 15 + 1)) + 15,
+    counter_attack: 15,
     char_left: "assets/images/Characters-Left/leia.png",
     char_right: "assets/images/Characters-Right/leia.png"
 }
@@ -243,6 +300,7 @@ var padme = {
     left_hp: 120,
     right_hp: 120,
     attack_power: Math.floor(Math.random() * (10 - 5 + 1)) + 5,
+    counter_attack: 5,
     char_left: "assets/images/Characters-Left/padme.png",
     char_right: "assets/images/Characters-Right/padme.png"
 }
@@ -251,6 +309,7 @@ var jar_jar = {
     left_hp: 100,
     right_hp: 100,
     attack_power: Math.floor(Math.random() * (100 - 2 + 1)) + 2,
+    counter_attack: Math.floor(Math.random() * (100 - 2 + 1)) + 2,
     char_left: "assets/images/Characters-Left/jar-jar.png",
     char_right: "assets/images/Characters-Right/jar.jar.png"
 }
@@ -259,8 +318,34 @@ var qui_gon = {
     left_hp: 225,
     right_hp: 225,
     attack_power: Math.floor(Math.random() * (36 - 18 + 1)) + 18,
+    counter_attack: 18,
     char_left: "assets/images/Characters-Left/qui-gon.png",
     char_right: "assets/images/Characters-Right/qui-gon.png"
+}
+var characters = {
+    anakinl:anakin,
+    anakinr:anakin,
+    bobal:boba,
+    bobar:boba,
+    chewiel:chewie,
+    chewier:chewie,
+    emperorl:emperor,
+    emperorr:emperor,
+    solol:solo,
+    solor:solo,
+    jarjarl:jar_jar,
+    jarjarr:jar_jar,
+    leial:leia,
+    leiar:leia,
+    lukel:luke,
+    vaderl:vader,
+    vaderr:vader,
+    obiwanl:obi_wan,
+    obiwanr:obi_wan,
+    yodal:yoda,
+    yodar:yoda,
+    macel:mace,
+    macer:mace
 }
 
 $(document).ready(function () { 
@@ -269,34 +354,31 @@ $(document).ready(function () {
     $("#x_wing").pan({fps: 80, speed: 2, dir: "right"});
     $("background").pan({fps: 5, speed: 2, dir: "left"});
 
-    $('#anakin-l').click(function(){
+    $('#anakinl').click(function(){
         $(".image_file_l").hide();
         $('#anakin_image_l').show();
         $("#anakin_stats_l").text(anakin.name + " " + anakin.left_hp + "HP");
-        $("#anakin_stats_l").show(); 
-        var playerChar = anakin;
-        console.log(playerChar);
-        return playerChar;     
+        $("#anakin_stats_l").show();     
     });
-    $('#boba-l').click(function(){
+    $('#bobal').click(function(){
         $(".image_file_l").hide();
         $('#boba_image_l').show();
         $("#boba_stats_l").text(boba.name + " " + boba.left_hp + "HP");
         $("#boba_stats_l").show();
     });
-    $('#chewie-l').click(function(){
+    $('#chewiel').click(function(){
         $(".image_file_l").hide();
         $('#chewie_image_l').show();
         $("#chewie_stats_l").text(chewie.name + " " + chewie.left_hp + "HP");
         $("#chewie_stats_l").show();
     });
-    $('#emperor-l').click(function(){
+    $('#emperorl').click(function(){
         $(".image_file_l").hide();
         $('#emperor_image_l').show();
         $("#emperor_stats_l").text(emperor.name + " " + emperor.left_hp + "HP");
         $("#emperor_stats_l").show();
     });
-    $('#solo-l').click(function(){
+    $('#solol').click(function(){
         $(".image_file_l").hide();
         $('#solo_image_l').show();
         $("#solo_stats_l").text(solo.name + " " + solo.left_hp + "HP");
@@ -308,111 +390,109 @@ $(document).ready(function () {
         $("#jar-jar_stats_l").text(jar_jar.name + " " + jar_jar.left_hp + "HP");
         $("#jar-jar_stats_l").show();
     });
-    $('#leia-l').click(function(){
+    $('#leial').click(function(){
         $(".image_file_l").hide();
         $('#leia_image_l').show();
         $("#leia_stats_l").text(leia.name + " " + leia.left_hp + "HP");
         $("#leia_stats_l").show();
     });
-    $('#luke-l').click(function(){
+    $('#lukel').click(function(){
         $(".image_file_l").hide();
         $('#luke_image_l').show();
         $("#luke_stats_l").text(luke.name + " " + luke.left_hp + "HP");
         $("#luke_stats_l").show();
     });
-    $('#vader-l').click(function(){
+    $('#vaderl').click(function(){
         $(".image_file_l").hide();
         $('#vader_image_l').show();
         $("#vader_stats_l").text(vader.name + " " + vader.left_hp + "HP");
         $("#vader_stats_l").show();
     });
-    $('#obi-wan-l').click(function(){
+    $('#obiwanl').click(function(){
         $(".image_file_l").hide();
         $('#obi-wan_image_l').show();
         $("#obi-wan_stats_l").text(obi_wan.name + " " + obi_wan.left_hp + "HP");
         $("#obi-wan_stats_l").show();
     });
-    $('#yoda-l').click(function(){
+    $('#yodal').click(function(){
         $(".image_file_l").hide();
         $('#yoda_image_l').show();
         $("#yoda_stats_l").text(yoda.name + " " + yoda.left_hp + "HP");
         $("#yoda_stats_l").show();
     });
-    $('#mace-l').click(function(){
+    $('#macel').click(function(){
         $(".image_file_l").hide();
         $('#mace_image_l').show();
         $("#mace_stats_l").text(mace.name + " " + mace.left_hp + "HP");
         $("#mace_stats_l").show();
     });
-    $('#anakin-r').click(function(){
+    $('#anakinr').click(function(){
         $(".image_file_r").hide();
         $('#anakin_image_r').show();
         $("#anakin_stats_r").text(anakin.name + " " + anakin.right_hp + "HP");
         $("#anakin_stats_r").show();
-        var cpuChar = anakin;
-        return cpuChar;
     });
-    $('#boba-r').click(function(){
+    $('#bobar').click(function(){
         $(".image_file_r").hide();
         $('#boba_image_r').show();
         $("#boba_stats_r").text(boba.name + " " + boba.right_hp + "HP");
         $("#boba_stats_r").show();
     });
-    $('#chewie-r').click(function(){
+    $('#chewier').click(function(){
         $(".image_file_r").hide();
         $('#chewie_image_r').show();
         $("#chewie_stats_r").text(chewie.name + " " + chewie.right_hp + "HP");
         $("#chewie_stats_r").show();
     });
-    $('#emperor-r').click(function(){
+    $('#emperorr').click(function(){
         $(".image_file_r").hide();
         $('#emperor_image_r').show();
         $("#emperor_stats_r").text(emperor.name + " " + emperor.right_hp + "HP");
         $("#emperor_stats_r").show();
     });
-    $('#solo-r').click(function(){
+    $('#solor').click(function(){
         $(".image_file_r").hide();
         $('#solo_image_r').show();
         $("#solo_stats_r").text(solo.name + " " + solo.right_hp + "HP");
         $("#solo_stats_r").show();
     });
-    $('#jar-jar-r').click(function(){
+    $('#jarjarr').click(function(){
         $(".image_file_r").hide();
         $('#jar-jar_image_r').show();
         $("#jar-jar_stats_r").text(jar_jar.name + " " + jar_jar.right_hp + "HP");
         $("#jar-jar_stats_r").show();
     });
-    $('#leia-r').click(function(){
+    $('#leiar').click(function(){
         $(".image_file_r").hide();
         $('#leia_image_r').show();
         $("#leia_stats_r").text(leia.name + " " + leia.right_hp + "HP");
         $("#leia_stats_r").show();
     });
-    $('#luke-r').click(function(){
+    $('#luker').click(function(){
         $(".image_file_r").hide();
         $('#luke_image_r').show();
         $("#luke_stats_r").text(luke.name + " " + luke.right_hp + "HP");
         $("#luke_stats_r").show();
     });
-    $('#vader-r').click(function(){
+    $('#vaderr').click(function(){
         $(".image_file_r").hide();
         $('#vader_image_r').show();
         $("#vader_stats_r").text(vader.name + " " + vader.right_hp + "HP");
         $("#vader_stats_r").show();
     });
-    $('#obi-wan-r').click(function(){
+    $('#obiwanr').click(function(){
         $(".image_file_r").hide();
         $('#obi-wan_image_r').show();
         $("#obi-wan_stats_r").text(obi_wan.name + " " + obi_wan.right_hp + "HP");
         $("#obi-wan_stats_r").show();
     });
-    $('#yoda-r').click(function(){
+    $('#yodar').click(function(){
         $(".image_file_r").hide();
         $('#yoda_image_r').show();
         $("#yoda_stats_r").text(yoda.name + " " + yoda.right_hp + "HP");
         $("#yoda_stats_r").show();
     });
-    $('#mace-r').click(function(){
+    $('#macer').click(function(){
         $(".image_file_r").hide();
         $('#mace_image_r').show();
         $("#mace_stats_r").text(mace.name + " " + mace.right_hp + "HP");
@@ -443,21 +523,10 @@ $(document).ready(function () {
 
 // Start Game - sets up field of play, displays characters, their HP and a background
 
-// $("#attackButton").on('click', function(){
-//     $("#" + playerChar).addClass('attackLeft');
-//     $("#" + cpuChar).addClass('attackRight');
-// });
+
 
 // Play Game - Lets player choose character and ememy. Ease char onto playing field
 /* Take player 1 and player 2 and perform calculation then show updated results*/
-function playGame(){
-    $("#anakin-l").click(function(){
-        var playerChar = anakin;
-        console.log(clicked_id);
-        console.log(playerChar);
-        return playerChar;
-    })
-}
 
 
 

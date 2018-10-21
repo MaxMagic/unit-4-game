@@ -88,6 +88,11 @@ body, html {
     color: gold;
 }
 
+#anakin_stats_l,
+#anakin_stats_r {
+    z-index: 8000;
+}
+
  #heading {
     font-family: 'Star Jedi', arial;
  }
