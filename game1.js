@@ -161,8 +161,8 @@ $("#attackButton").on("click", function(){
         $(playerChar.stat_id_left).show();
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
         // $("#anakin_stats_r").show();
-        var message1 = $("<p><p>").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
-        var message2 = $("<p><p>").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
+        var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
+        var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
         $("#fight_message").append(message1, message2);
         playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
         checkGame(playerChar, cpuChar);
@@ -188,7 +188,8 @@ function checkGame(playerChar, cpuChar){
         console.log(cpuChar);
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.left_hp + "HP");
         $("#" + cpuChar.stat_id_right).show();
-        $("#" + cpuChar.img_id_r).show();        
+        $("#" + cpuChar.img_id_r).show(); 
+        return;       
     } 
 }
 
@@ -450,7 +451,7 @@ $(document).ready(function () {
         $("#solo_stats_l").text(solo.name + " " + solo.left_hp + "HP");
         $("#solo_stats_l").show();
     });
-    $('#jar-jar-l').click(function(){
+    $('#jarjarl').click(function(){
         $(".image_file_l").hide();
         $('#jar-jar_image_l').show();
         $("#jar-jar_stats_l").text(jar_jar.name + " " + jar_jar.left_hp + "HP");
