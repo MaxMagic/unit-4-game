@@ -111,7 +111,7 @@ body, html {
  }
 
  #fight_message {
-    font-size: 300%;
+    font-size: 50%;
     color: white;
     height: 100%;
     z-index: 3000;

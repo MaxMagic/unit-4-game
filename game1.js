@@ -161,8 +161,8 @@ $("#attackButton").on("click", function(){
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         $("#anakin_stats_l").text(playerChar.name + " " + playerChar.left_hp + "HP");
         $("#anakin_stats_l").show();
-        $("#fight_message").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
-        $("#fight_message").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
+        $("#fight_message").html(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
+        $("#fight_message").html(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
         $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.right_hp + "HP");
         $("#anakin_stats_r").show();
         playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
@@ -182,7 +182,6 @@ function checkGame(playerChar, cpuChar){
         cpuChar = characters[Math.floor(Math.random() * characters.length)];
         $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.left_hp + "HP");
         $("#anakin_stats_r").show();
-        $('#yoda_image_l').show();
     } 
 }
 
