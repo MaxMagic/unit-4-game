@@ -105,7 +105,7 @@ function checkGame(player, cpu){
         $(".image_file_r").hide();
         cpuChar = characters[keys[Math.floor(Math.random() * 12)]];
         console.log(cpuChar);
-        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.left_hp + "HP");
+        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
         $("#" + cpuChar.stat_id_right).show();
         $("#" + cpuChar.img_id_r).show(); 
         return;       
