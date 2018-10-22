@@ -86,19 +86,19 @@ $("#attackButton").on("click", function(){
     }
 });
 
-function checkGame(playerChar, cpuChar){
-    if (playerChar.left_hp <= 0){
+function checkGame(player, cpu){
+    if (player.left_hp <= 0){
         $(".image_file_l").hide();
         $("#fight_message").text("You Lose!");
+        return;
     }
-    if (cpuChar.right_hp <=0 && enemyCount === 4){
+    if (cpu.right_hp <=0 && enemyCount === 4){
+        $(".image_file_r").hide();
         $("#fight_message").text("You Win!");
         return;
     }
-    if (cpuChar.right_hp <= 0 && enemyCount < 4){
+    if (cpu.right_hp <= 0 && enemyCount < 4){
         enemyCount++;
-        console.log(Math.floor(Math.random() * 12));
-        console.log(enemyCount);
         var keys = (Object.keys(characters));
         $(".image_file_r").hide();
         cpuChar = characters[keys[Math.floor(Math.random() * 12)]];
