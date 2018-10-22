@@ -50,6 +50,7 @@ function player1(clicked_id){
 
 function player2(clicked_id){
     cpuChar = characters[clicked_id];
+    console.log(cpuChar);
 };
 
 var playerChar;
@@ -72,6 +73,7 @@ $("#attackButton").on("click", function(){
         checkGame(playerChar, cpuChar);    
     }
     else {
+        console.log(cpuChar);
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         console.log(playerChar.stat_id_left);
@@ -325,6 +327,7 @@ var characters = {
     leial:leia,
     leiar:leia,
     lukel:luke,
+    luker:luke,
     vaderl:vader,
     vaderr:vader,
     obiwanl:obi_wan,
