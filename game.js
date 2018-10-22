@@ -111,7 +111,7 @@ function checkGame(playerChar, cpuChar){
 }
 
 $("#newgameButton").on("click", function(){
-    window.location.reload();
+    window.location.reload(true);
 })
 
 var anakin = {
