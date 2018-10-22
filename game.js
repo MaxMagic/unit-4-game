@@ -60,15 +60,15 @@ $("#attackButton").on("click", function(){
     if (playerChar === jar_jar){
         for (var i = 0; i <= 4; i++){
             cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
-            $("#anakin_stats_l").text(playerChar.name + " " + playerChar.left_hp + "HP");
-            $("#anakin_stats_l").show();
-            $("#fight_message").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
-            $("#fight_message").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
-            $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.right_hp + "HP");
-            $("#anakin_stats_r").show(); 
+            playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
+            $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
+            $(playerChar.stat_id_left).show();
+            $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+            var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
+            var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
+            $("#fight_message").prepend(message1, message2);
             playerChar.attack_power = playerChar.attack_power + playerChar.attack_power; 
         };
-        playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         checkGame(playerChar, cpuChar);    
     }
     else {
@@ -78,10 +78,9 @@ $("#attackButton").on("click", function(){
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
-        // $("#anakin_stats_r").show();
         var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
-        $("#fight_message").append(message1, message2);
+        $("#fight_message").prepend(message1, message2);
         playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
         checkGame(playerChar, cpuChar);
     }
@@ -110,6 +109,10 @@ function checkGame(playerChar, cpuChar){
         return;       
     } 
 }
+
+$("#newgameButton").on("click", function(){
+    window.location.reload();
+})
 
 var anakin = {
     name: "Anakin Skywalker",
