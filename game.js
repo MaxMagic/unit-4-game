@@ -17,6 +17,7 @@ $("#attackButton").on("click", function(){
         for (var i = 0; i <= 4; i++){
             cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
             $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+            $(cpuChar.stat_id_left).show();
             // Check for winner after attack
             checkGame(playerChar, cpuChar);
         };
@@ -34,6 +35,7 @@ $("#attackButton").on("click", function(){
         // Conditions for remaining characters
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        $(cpuChar.stat_id_left).show();
         // Check for winner after attack
         checkGame(playerChar, cpuChar);
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
