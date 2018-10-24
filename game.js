@@ -56,46 +56,46 @@ var playerChar;
 var cpuChar; 
 var enemyCount = 0;
 
+// Game logic. Each character takes turns attacking
 $("#attackButton").on("click", function(){
+    // Special condition for Jar-Jar. Attacks 4 times in succession
     if (playerChar === jar_jar){
         for (var i = 0; i <= 4; i++){
             cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
+            $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+            // Check for winner after attack
+            checkGame(playerChar, cpuChar);
         };
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
-        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        // Check for winner after attack
+        checkGame(playerChar, cpuChar);
         var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
         $("#fight_message").prepend(message1, message2);
-        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
-        checkGame(playerChar, cpuChar);    
+        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;    
     }
     else {
+        // Conditions for remaining characters
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
+        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        // Check for winner after attack
+        checkGame(playerChar, cpuChar);
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
-        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        // Check for winner after attack
+        checkGame(playerChar, cpuChar);
         var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
         $("#fight_message").prepend(message1, message2);
-        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
-        checkGame(playerChar, cpuChar);
+        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;  
     }
 });
 
+// Function checks for winner
 function checkGame(player, cpu){
-    if (player.left_hp <= 0){
-        $(".image_file_l").hide();
-        $("#fight_message").text("You Lose!");
-        return;
-    }
-    if (cpu.right_hp <=0 && enemyCount === 4){
-        $(".image_file_r").hide();
-        $("#fight_message").text("You Win!");
-        return;
-    }
     if (cpu.right_hp <= 0 && enemyCount < 4){
         enemyCount++;
         var keys = (Object.keys(characters));
@@ -106,6 +106,23 @@ function checkGame(player, cpu){
         $("#" + cpuChar.img_id_r).show(); 
         return;       
     } 
+    else if (player.left_hp <= 0){
+        $(".image_file_l").hide();
+        $("#fight_message").text("You Lose!");
+        $("#attackButton").click(function(){
+            $("#attackButton").off("click");
+        });
+        return;
+    }
+    else if (cpu.right_hp <=0 && enemyCount === 4){
+        $(".image_file_r").hide();
+        $("#fight_message").text("You Win!");
+        $("#attackButton").click(function(){
+            $("#attackButton").off("click");
+        });
+        return;
+    }
+    
 }
 
 $("#newgameButton").on("click", function(){
